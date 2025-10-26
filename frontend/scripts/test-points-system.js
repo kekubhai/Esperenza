@@ -100,3 +100,4 @@ fetch('http://localhost:3000/api/user/points?userId=1')
     console.log('   cd frontend && npm run dev');
     console.log('\nThen run this script again.');
   });
+

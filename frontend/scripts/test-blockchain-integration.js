@@ -265,3 +265,4 @@ fetch('http://localhost:3000/api/referrals/blockchain/create')
     console.log('   cd frontend && npm run dev');
     console.log('\nThen run this script again.');
   });
+

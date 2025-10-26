@@ -228,3 +228,4 @@ npx prisma studio
 ```
 
 The referral discovery system is now ready! Users can discover, select, and use referrals while providers get rewarded with points. 🎉
+

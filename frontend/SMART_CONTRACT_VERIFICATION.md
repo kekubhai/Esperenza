@@ -162,3 +162,4 @@ window.ethereum.request({ method: 'eth_chainId' })
 ---
 
 **Note:** This verification system ensures your smart contracts are properly connected and all functionality is working as expected! 🎉
+

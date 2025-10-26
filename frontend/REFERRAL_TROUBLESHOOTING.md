@@ -133,3 +133,4 @@ When working correctly, you should see:
 4. **Try restarting the development server**
 
 The system is designed to be resilient and will work even if the database isn't ready yet!
+

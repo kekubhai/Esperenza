@@ -227,3 +227,4 @@ fetch('http://localhost:3000/api/contract/ecofund')
     console.log('   cd frontend && npm run dev');
     console.log('\nThen run this script again.');
   });
+
