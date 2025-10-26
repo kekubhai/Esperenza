@@ -1,5 +1,17 @@
 # 🌿 Esperenza — ReFi Wallet + Eco Marketplace + Referral Hub
 
+
+
+
+Contracts deployed : 
+
+
+NEXT_PUBLIC_REFERRAL_REWARDS_ADDRESS=0x895794e5BCAE18033f610C7c8B096b53e0b80b02
+NEXT_PUBLIC_PAYMENT_CONTRACT_ADDRESS=0x150bb9d486a4c8634d79F844D28209FA089f24e8
+NEXT_PUBLIC_PHONE_MAPPING_CONTRACT_ADDRESS=0x585B5D6833CF39575a4423F799A8523BcC3b0509
+
+
+
 **Esperenza** is a web platform built with **Next.js 14 (TypeScript)** that turns every transaction into a small act of climate action.  
 It combines a **Celo-powered wallet**, an **eco-goodie marketplace**, and a **referral exchange** connecting campus ambassadors (Granters) with users (Seekers).  
 Every action contributes to greener initiatives through transparent, on-chain micro-donations.
