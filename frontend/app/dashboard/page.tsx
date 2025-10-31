@@ -11,9 +11,8 @@ import { UserDataModal } from '@/components/dashboard/UserDataModal';
 import { ProgramCards } from '@/components/dashboard/ProgramCards';
 import ReferralTestPanel from '@/components/dashboard/ReferralTestPanel';
 import SmartContractStatus from '@/components/dashboard/SmartContractStatus';
-import LiquidEther from '@/components/ui/LiquidEther';
 import Footer from '@/components/layout/Footer';
-import Navigation from '@/components/layout/Navigation';
+import NavbarDemo from '@/components/resizable-navbar-demo';
 
 // Types
 interface DashboardCardProps {
@@ -80,14 +79,14 @@ const PLATFORMS = [
 ];
 
 const DashboardCard: React.FC<DashboardCardProps> = ({ title, value, icon: Icon, className = '' }) => (
-  <div className={`group relative p-6 rounded-xl shadow-lg hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 hover:scale-105 ${className}`}>
+  <div className={`group relative p-6 rounded-xl bg-white/5 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 hover:scale-105 hover:bg-white/10 ${className}`}>
     <div className="flex items-center justify-between">
       <div>
-        <p className="text-sm text-white/80 group-hover:text-white transition-colors duration-300 drop-shadow-lg">{title}</p>
-        <h3 className="text-2xl font-bold text-white mt-1 group-hover:text-white transition-colors duration-300 drop-shadow-lg">{value}</h3>
+        <p className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{title}</p>
+        <h3 className="text-2xl font-bold text-white mt-1 group-hover:text-white transition-colors duration-300">{value}</h3>
       </div>
       <div className="p-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 group-hover:bg-white/20 group-hover:shadow-lg group-hover:shadow-purple-300/50 transition-all duration-300">
-        <Icon className="w-5 h-5 text-white group-hover:text-purple-200 transition-colors duration-300 drop-shadow-lg" />
+        <Icon className="w-5 h-5 text-white group-hover:text-purple-200 transition-colors duration-300" />
       </div>
     </div>
     {/* Glow effect */}
@@ -96,28 +95,28 @@ const DashboardCard: React.FC<DashboardCardProps> = ({ title, value, icon: Icon,
 );
 
 const ReferralItem: React.FC<ReferralItemProps> = ({ name, code, uses, reward, isActive = true, maxUsage }) => (
-  <div className="group flex items-center justify-between p-4 hover:bg-white/10 hover:backdrop-blur-md rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 hover:border hover:border-white/20">
+  <div className="group flex items-center justify-between p-4 bg-white/5 backdrop-blur-xl hover:bg-white/10 rounded-lg border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:border-white/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20">
     <div className="flex items-center gap-4">
       <div className={`w-10 h-10 rounded-full ${isActive ? 'bg-white/20 backdrop-blur-sm border border-white/30 group-hover:shadow-lg group-hover:shadow-purple-300/50 group-hover:bg-white/30' : 'bg-gray-500/20 border border-gray-400/30'} flex items-center justify-center transition-all duration-300`}>
-        <span className={`font-semibold ${isActive ? 'text-white drop-shadow-lg group-hover:text-purple-200' : 'text-gray-300'} transition-colors duration-300`}>{code[0] || 'R'}</span>
+        <span className={`font-semibold ${isActive ? 'text-white group-hover:text-purple-200' : 'text-gray-300'} transition-colors duration-300`}>{code[0] || 'R'}</span>
       </div>
         <div>
-          <p className="font-medium text-white group-hover:text-white transition-colors duration-300 drop-shadow-lg">{name}</p>
-          <p className="text-sm text-white/70 group-hover:text-white/80 transition-colors duration-300 drop-shadow-lg">
+          <p className="font-medium text-white group-hover:text-white transition-colors duration-300">{name}</p>
+          <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
             {code} • {isActive ? 'Active' : 'Inactive'} • {maxUsage ? `${maxUsage} max uses` : 'Unlimited'}
           </p>
         </div>
     </div>
     <div className="flex items-center gap-6">
       <div className="text-right">
-        <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors duration-300 drop-shadow-lg">Uses</p>
-        <p className="font-medium text-white group-hover:text-white transition-colors duration-300 drop-shadow-lg">{uses}</p>
+        <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Uses</p>
+        <p className="font-medium text-white group-hover:text-white transition-colors duration-300">{uses}</p>
       </div>
       <div className="text-right">
-        <p className="text-sm text-white/60 group-hover:text-white/80 transition-colors duration-300 drop-shadow-lg">Reward</p>
-        <p className="font-medium text-white group-hover:text-white transition-colors duration-300 drop-shadow-lg">{reward}</p>
+        <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors duration-300">Reward</p>
+        <p className="font-medium text-white group-hover:text-white transition-colors duration-300">{reward}</p>
       </div>
-      <ChevronRight className="w-5 h-5 text-white/50 group-hover:text-purple-300 transition-colors duration-300 drop-shadow-lg" />
+      <ChevronRight className="w-5 h-5 text-gray-500 group-hover:text-purple-300 transition-colors duration-300" />
     </div>
   </div>
 );
@@ -910,36 +909,20 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="relative min-h-screen">
-      {/* Animated Liquid Background */}
-      <div className="fixed inset-0 z-0">
-        <LiquidEther
-          mouseForce={20}
-          cursorSize={100}
-          isViscous={false}
-          viscous={30}
-          iterationsViscous={32}
-          iterationsPoisson={32}
-          dt={0.014}
-          BFECC={true}
-          resolution={0.5}
-          isBounce={false}
-          colors={['#5227FF', '#FF9FFC', '#B19EEF']}
-          autoDemo={true}
-          autoSpeed={0.5}
-          autoIntensity={2.2}
-          takeoverDuration={0.25}
-          autoResumeDelay={1000}
-          autoRampDuration={0.6}
-          className="w-full h-full"
-        />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+      {/* Green gradient spots for background */}
+      <div className="absolute top-20 left-10 w-96 h-96 bg-green-500/18 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-20 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-teal-500/12 rounded-full blur-3xl"></div>
+      <div className="absolute top-60 right-1/4 w-64 h-64 bg-green-400/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-40 left-1/3 w-88 h-88 bg-emerald-600/14 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/3 right-10 w-56 h-56 bg-teal-400/8 rounded-full blur-3xl"></div>
       
       {/* Navigation */}
-      <Navigation variant="glass" />
+      <NavbarDemo />
       
       {/* Main Content */}
-      <div className="relative z-10 p-6 min-h-screen">
+      <div className="p-6 pt-24 min-h-screen relative z-10">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-3xl font-bold text-white drop-shadow-lg">Dashboard</h1>
         <div className="flex items-center gap-3">
@@ -973,7 +956,7 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Wallet Info Card */}
             {isConnected && address && (
-              <Card className="group border-2 border-white/30 bg-white/20 backdrop-blur-md hover:bg-white/30 hover:border-white/50 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
+              <Card className="group border-2 border-white/20 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:bg-white/10 hover:border-white/30 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-lg text-slate-900 group-hover:text-black transition-colors duration-300">
                     <Wallet className="h-5 w-5 text-blue-600 group-hover:text-blue-700 transition-colors duration-300" />
@@ -1009,7 +992,7 @@ export default function DashboardPage() {
 
             {/* User Info Card */}
             {isAuthenticated && user && (
-              <Card className="group border-2 border-white/30 bg-white/20 backdrop-blur-md hover:bg-white/30 hover:border-white/50 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300">
+              <Card className="group border-2 border-white/20 bg-white/5 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] hover:bg-white/10 hover:border-white/30 hover:shadow-xl hover:shadow-green-500/20 transition-all duration-300">
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-lg text-slate-900 group-hover:text-black transition-colors duration-300">
                     <User className="h-5 w-5 text-green-600 group-hover:text-green-700 transition-colors duration-300" />
@@ -1054,8 +1037,8 @@ export default function DashboardPage() {
       
            
 
-      <div className="rounded-xl p-6 transition-all duration-300">
-        <h2 className="text-xl text-white font-semibold mb-4 drop-shadow-lg">My Referrals</h2>
+      <div className="rounded-xl p-6 bg-white/5 backdrop-blur-xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] transition-all duration-300">
+        <h2 className="text-xl text-white font-semibold mb-4">My Referrals</h2>
         
         <div className="flex justify-between items-center mb-4">
           <button

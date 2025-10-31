@@ -7,13 +7,11 @@ import { Impact } from "@/components/sections/Impact";
 import { LoginModal } from "@/components/auth/LoginModal";
 import { useAuth } from "@/contexts/AuthContext";
 import { useAccount } from "wagmi";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import GridDistortion from "@/components/ui/GridDistortion";
 import Footer from "@/components/layout/Footer";
-import Navigation from "@/components/layout/Navigation";
+import NavbarDemo from "@/components/resizable-navbar-demo";
+import { MagicButton } from "@/components/ui/magic-button";
 
 export default function Home() {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
@@ -36,67 +34,60 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen relative text-white font-sans overflow-hidden">
-      {/* Animated Grid Distortion Background */}
+    <main className="min-h-screen relative text-white font-sans overflow-hidden bg-black">
+      {/* Green gradient spots background */}
       <div className="fixed inset-0 z-0">
-        <GridDistortion
-          grid={25}
-          mouse={0.2}
-          strength={0.3}
-          relaxation={0.92}
-          imageSrc="/gradient-bg.svg"
-          className="w-full h-full"
-        />
+        <div className="absolute top-10 left-20 w-96 h-96 bg-green-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-40 right-10 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-40 left-1/4 w-72 h-72 bg-teal-500/12 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-1/3 w-64 h-64 bg-green-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-emerald-600/8 rounded-full blur-3xl"></div>
       </div>
+      
+      {/* Navigation */}
+      <NavbarDemo />
 
       {/* Content Layer */}
-      <div className="relative z-10">
-        {/* Navigation */}
-        <Navigation 
-          variant="glass" 
-          onLoginClick={() => setIsLoginModalOpen(true)}
-        />
-
+      <div className="relative pt-20 z-10">
       <div className="relative">
         <Hero />
       </div>
-      <div className="bg-white/5 backdrop-blur-xl border-y border-white/10 shadow-2xl">
+      <div className="bg-black border-y border-white/10">
         <Features />
       </div>
       <div className="relative">
         <Impact />
       </div>
-      <div className="bg-white/3 backdrop-blur-lg border-y border-white/5">
+      <div className="bg-black border-y border-white/5">
         <Marquee3D/>
       </div>
       
       {/* CTA Section */}
-      <section className="py-16 bg-white/5 backdrop-blur-xl border-t border-white/10 shadow-2xl">
+      <section className="py-16 bg-black border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">
             Ready to Get Started?
           </h2>
           <p className="text-xl text-white/90 mb-8 drop-shadow-md">
-            Connect your wallet and register your phone number to start using EcoPay
+            Connect your wallet and register your phone number to start using Esperenza
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-gradient-to-r from-purple-500/60 to-pink-500/60 backdrop-blur-lg border border-white/20 text-white hover:from-purple-500/80 hover:to-pink-500/80 hover:shadow-2xl hover:shadow-purple-500/40 transition-all duration-300"
+            <MagicButton 
+              className="w-full sm:w-auto"
               onClick={() => setIsLoginModalOpen(true)}
             >
-              Get Started
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-            <Link href="/dashboard">
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="w-full sm:w-auto bg-white/10 backdrop-blur-lg border-white/20 text-white hover:bg-white/20 hover:shadow-2xl hover:shadow-white/30 transition-all duration-300"
-              >
-                View Dashboard
-              </Button>
-            </Link>
+              <span className="flex items-center">
+                Get Started
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </span>
+            </MagicButton>
+            <MagicButton 
+              as="a"
+              href="/dashboard"
+              className="w-full sm:w-auto"
+            >
+              View Dashboard
+            </MagicButton>
           </div>
         </div>
       </section>
