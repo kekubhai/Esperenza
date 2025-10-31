@@ -5,17 +5,17 @@
 
 
 [
-  "https://celo-sepolia.blockscout.com/tx/0xa4cf210ad355f41bb41e324a86cb76c87a755c622a83e6d829afebe98228bcad",
-  "https://celo-sepolia.blockscout.com/tx/0xbc77aeab82159887b23890b76d5d4ce73686dab987a4e14f382bc1c80912b40f",
-  "https://celo-sepolia.blockscout.com/tx/0x8d8171b941411dd93289f48a177b07c4be85f103a0ca4ba47c26cfbae846a1a4"
+  "https://evm-testnet.flowscan.io/tx/0xc548c9c18c27063fa0ad90f3688dace9eb32a56c83b4a19ae60978e00a4132d1",
+  "https://evm-testnet.flowscan.io/address/0x585B5D6833CF39575a4423F799A8523BcC3b0509",
+  "https://evm-testnet.flowscan.io/address/0x895794e5BCAE18033f610C7c8B096b53e0b80b02readme"
 ]
 
 Contracts deployed : 
 
 
-NEXT_PUBLIC_REFERRAL_REWARDS_ADDRESS=0x895794e5BCAE18033f610C7c8B096b53e0b80b02
-NEXT_PUBLIC_PAYMENT_CONTRACT_ADDRESS=0x150bb9d486a4c8634d79F844D28209FA089f24e8
-NEXT_PUBLIC_PHONE_MAPPING_CONTRACT_ADDRESS=0x585B5D6833CF39575a4423F799A8523BcC3b0509
+Paymet Address:0x585B5D6833CF39575a4423F799A8523BcC3b0509
+PhoneMapping Address:0x150bb9d486a4c8634d79F844D28209FA089f24e8
+Redeem Address:0x895794e5BCAE18033f610C7c8B096b53e0b80b02
 
 
 
